@@ -1,0 +1,23 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr minmax(150px, 45%);
+}
+
+.control {
+  background-color: gray;
+  height: 100vh;
+  overflow: auto;
+}
+
+.logger {
+  background-color: pink;
+}
+
+.requestControl {
+  margin-bottom: 20px;
+}
