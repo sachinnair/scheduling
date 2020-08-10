@@ -3,8 +3,6 @@ import ORoad from './ORoad';
 import LS from './LoggerService';
 import OPriorityQ from './OPriorityQueue';
 
-var allocations = [];
-
 const MULTIPLIER_FACTOR = 1; // Just for delay purpose
 
 function runRequest(reqObj) {
@@ -17,7 +15,7 @@ function runRequest(reqObj) {
   }
   if (checkAllocations(reqObj)) {
     reqObj.isActive = true;
-    allocations.push(reqObj);
+    ORoad.allocations.push(reqObj);
     const tripDuration = Math.abs(reqObj.dest - reqObj.src);
     LS('request.start', {reqObj});
 
@@ -39,7 +37,7 @@ function runRequest(reqObj) {
 }
 
 function checkAllocations(reqObj) {
-  var allocLength = allocations.length;
+  var allocLength = ORoad.allocations.length;
   var index = 0;
 
   let minMilestone;
@@ -56,14 +54,14 @@ function checkAllocations(reqObj) {
   while (index < allocLength) {
     // detect overlap to throw an error
     if (
-      allocations[index].isActive
-      && ((minMilestone <= allocations[index].src &&
-        maxMilestone > allocations[index].src)
-      || (minMilestone > allocations[index].src &&
-        minMilestone < allocations[index].dest))
+      ORoad.allocations[index].isActive
+      && ((minMilestone <= ORoad.allocations[index].src &&
+        maxMilestone > ORoad.allocations[index].src)
+      || (minMilestone > ORoad.allocations[index].src &&
+        minMilestone < ORoad.allocations[index].dest))
     ) {
-      LS('request.blocked', { blocker: allocations[index], reqObj});
-      allocations[index].subscribe(reqObj);
+      LS('request.blocked', { blocker: ORoad.allocations[index], reqObj});
+      ORoad.allocations[index].subscribe(reqObj);
       return false;
     }
 
