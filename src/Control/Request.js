@@ -6,14 +6,18 @@ export default function Request(props) {
 
   const [tripDest, setTripDest] = useState(props.dest || 0);
 
-  function addRequest(events) {
+  function addRequestField(events) {
     events.persist();
     let event = events;
-    props.addRequest(event, { src: tripSrc, dest: tripDest });
+    props.addRequestField(event);
   }
 
-  function removeRequest() {
-    props.removeRequest(props.requestNumber);
+  function removeRequestField() {
+    props.removeRequestField(props.requestNumber);
+  }
+
+  function setRequestDat() {
+    props.setRequestDat({ src: tripSrc, dest: tripDest, key: props.id });
   }
 
   return (
@@ -35,9 +39,12 @@ export default function Request(props) {
         onChange={(e) =>
           setTripDest(e.target.value > 0 ? parseInt(e.target.value, 10) : 0)
         }
+        onBlur={(e) => {
+          setRequestDat();
+        }}
       />
-      <button onClick={addRequest}>+</button>
-      <button onClick={removeRequest}>-</button>
+      <button onClick={addRequestField}>+</button>
+      <button onClick={removeRequestField}>-</button>
     </div>
   );
 }

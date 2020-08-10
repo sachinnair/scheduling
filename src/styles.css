@@ -14,10 +14,18 @@
   overflow: auto;
 }
 
-.logger {
-  background-color: pink;
-}
-
 .requestControl {
   margin-bottom: 20px;
+}
+
+.filterHolder {
+  font-size: 12px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 30px;
+  border: 1px solid red;
+}
+
+.filterHolder > input {
+  margin-right: 20px;
 }
