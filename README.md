@@ -76,7 +76,10 @@ As seen in the gif above you may create some random requests and click on "Submi
 
 
 
+### Time Complexity
 
+Worst Case: O(n ^ 2);
+Best Case: O(nlogn);
 
 
 
