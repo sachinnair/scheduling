@@ -76,11 +76,24 @@ As seen in the gif above you may create some random requests and click on "Submi
 
 
 
-### Time Complexity
+### Time Complexity:
 
 Worst Case: O(n ^ 2);
+
 Best Case: O(nlogn);
 
+
+### Folder Structure:
+
+Core solution is provided in src/Solution folder, where:
+
+scheduler.js : entry point for Requests, its execution and completion.
+ORoad.js : Road associated data.
+OPriorityQueue.js : Priority Queue Service providers creating min Heap tree using heapify algorithm, removing of root nodes
+LoggerService.js : Logging data
+CRequest.js : Class Request for creating Request instances 
+
+src/Control and other files are related to React.
 
 
 
