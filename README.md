@@ -80,8 +80,11 @@ As seen in the gif above you may create some random requests and click on "Submi
 
 * Worst Case: O(n ^ 2);
 
+When N requests are received with a trip plan between the same milestones a to b. Heapify forms min heap in O(n) time complexity. Therefore, for N requests the time complexity should be O(n^2);
+
 * Best Case: O(nlogn);
 
+When N requests are received with a trip plan where no collision occurs. All N requests are executed by removing each one from the min-heap's root for O(log n) time. Thus, O(n * log n);
 
 ### Folder Structure:
 
@@ -95,5 +98,12 @@ Core solution is provided in src/Solution folder, where:
 
 * src/Control and other files are related to React.
 
+### Running code locally
+
+You would need node and npm or yarn installed.
+
+Then running `npm install` or `yarn install` should add project dependencies.
+
+Run `npm run start` to run the project in local browser.
 
 
