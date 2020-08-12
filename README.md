@@ -33,11 +33,11 @@ Whereas, S and D are sources and destinations of various requests that can overl
 
 A request instance would have following properties:
 
-Source and Destination: It would hold information of source and destination.
-Dependents array: It would be the list of Requests that are blocked by the running (Active) Request Instance 
-Subscribe Function to add blocked requests to dependents list, so that they could be notified once the Travel Request is completed.
-Timestamp : To avoid time consuming request from not given the opportunity to execute.
-isActive: To show whether a Request is actively running.
+* Source and Destination: It would hold information of source and destination.
+* Dependents array: It would be the list of Requests that are blocked by the running (Active) Request Instance 
+* Subscribe Function to add blocked requests to dependents list, so that they could be notified once the Travel Request is completed.
+* Timestamp : To avoid time consuming request from not given the opportunity to execute.
+* isActive: To show whether a Request is actively running.
 
 
 When a request instance is not blocked by any running instance, they are moved to execute till completion.
@@ -47,7 +47,7 @@ On completion of the request its associated dependent requests are passed again 
 
 ## Few Scenarios:
 
-In a single unidirectional lane for Request to execute Source < Destination. But we have a bi-directional lane so Source > Destination.
+1.  In a single unidirectional lane for Request to execute Source < Destination. But we have a bi-directional lane so Source > Destination.
 
 2.  Larger duration trips missing the opportunity to execute:
 	This scenario can be resolved by incremental approach mentioned as below:
